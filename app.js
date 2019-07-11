@@ -62,10 +62,9 @@ app.use('/campground/:id/comments', commentRoutes);
 app.use("/campground/:id/reviews", reviewRoutes);
 
 
-const port = process.env.PORT || 3000;
-const ip = process.env.IP || "127.0.0.1";
-app.listen(port,function(){
-    console.log("Server has started .... at port "+ port+" ip: "+ip);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT,function(){
+    console.log(`Our app is running on port ${ PORT }`);
 });
 
 
