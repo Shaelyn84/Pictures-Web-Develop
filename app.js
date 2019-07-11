@@ -20,11 +20,11 @@ var campgroundRoutes = require('./routes/campground');
 var indexRoutes = require('./routes/index');
 var reviewRoutes= require("./routes/reviews");
 
-
-
+var url = process.env.DATABASEURL || 'mongodb://localhost: 27017/yelp_camp_v12';
+mongoose.connect(url);
 // mongoose.connect('mongodb://0.0.0.0: 27017/yelp_camp_v12', {useNewUrlParser:true});
 // mongoose.connect('mongodb://0.0.0.0', {useNewUrlParser:true});
-mongoose.connect('mongodb+srv://Ryann:password711@cluster0-vz005.mongodb.net/test?retryWrites=true&w=majority',{
+mongoose.connect(url,{
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
