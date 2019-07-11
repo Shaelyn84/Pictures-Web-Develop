@@ -62,15 +62,21 @@ app.use('/campground/:id/comments', commentRoutes);
 app.use("/campground/:id/reviews", reviewRoutes);
 
 
+const port = process.env.PORT || 3000;
+const ip = process.env.IP || "127.0.0.1";
+app.listen(port,function(){
+    console.log("Server has started .... at port "+ port+" ip: "+ip);
+});
 
- app.listen(process.env.PORT, process.env.IP, function(){
-  console.log('Movie Sever has started!');
-  });
 
-var port = process.env.PORT || 3000;
+//  app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log('Movie Sever has started!');
+//   });
+
+// var port = process.env.PORT || 3000;
 // var ip = process.env.IP || "127.0.0.1"; 
 
-app.listen(port,() =>{
-	console.log('Sercer listening on port 3000');
-});
+// app.listen(port,() =>{
+// 	console.log('Sercer listening on port 3000');
+// });
 
