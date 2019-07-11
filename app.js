@@ -23,7 +23,17 @@ var reviewRoutes= require("./routes/reviews");
 
 
 // mongoose.connect('mongodb://0.0.0.0: 27017/yelp_camp_v12', {useNewUrlParser:true});
-mongoose.connect('mongodb://0.0.0.0', {useNewUrlParser:true});
+// mongoose.connect('mongodb://0.0.0.0', {useNewUrlParser:true});
+mongoose.connect('mongodb+srv://Ryann:password711@cluster0-vz005.mongodb.net/test?retryWrites=true&w=majority',{
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('connected to DB');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
+
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
