@@ -68,7 +68,7 @@ app.listen(process.env.PORT, process.env.IP, function(){
   console.log('Movie Sever has started!');
  });
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port,() =>{
 	console.log('Sercer listening on port 3000');
 });
