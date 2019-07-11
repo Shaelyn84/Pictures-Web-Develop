@@ -50,18 +50,22 @@ router.get('/',  function(req, res){
 		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 		// res.render('campground', {campground: campground});
     // Get all campgrounds from DB
-	Campground.find({title: regex}, function(err, allCampground){
+	Campground.find({title: regex}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allCampground){
 			
-		if(err){
+		 Campground.count().exec(function (err, count) {
+			 if(err){
 			console.log('There is err in allcampground');
 		}
-		else{
-			if(allCampground.length < 1){
-				noMatch = "No campgrounds match that query, please try again.";
-			}
-			res.render('campgrounds/index', {campground: allCampground, page:'campground', noMatch: noMatch});
-		}
-	});	
+			 else{
+			res.render('campgrounds/index', {campground: allCampground, 
+											 page:'campground', noMatch: noMatch,
+											 current: pageNumber,
+                                            pages: Math.ceil(count / perPage)});
+			 }
+			
+			 });	
+		
+	      });
 	   }else{
 		Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec( function(err, allCampground){
 		 Campground.count().exec(function (err, count) {
