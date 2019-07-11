@@ -64,12 +64,14 @@ app.use("/campground/:id/reviews", reviewRoutes);
 
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
-  console.log('Movie Sever has started!');
- });
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log('Movie Sever has started!');
+//  });
 
 const port = process.env.PORT || 3000;
-app.listen(port,() =>{
+const ip = process.env.IP || "127.0.0.1"; 
+
+app.listen(port,function(){
 	console.log('Sercer listening on port 3000');
 });
 
