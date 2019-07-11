@@ -68,7 +68,7 @@ app.use("/campground/:id/reviews", reviewRoutes);
   });
 
 var port = process.env.PORT || 3000;
-var ip = process.env.IP || "127.0.0.1"; 
+// var ip = process.env.IP || "127.0.0.1"; 
 
 app.listen(port,() =>{
 	console.log('Sercer listening on port 3000');
